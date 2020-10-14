@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Tempero Calor</string>
+    <string name="accueil">Accueil</string>
+    <string name="auteurs">By Tom and Mathias</string>
+    <string name="btnSaisieReleve">Saisir un Relevé</string>
+    <string name="btnListeReleve">Liste des Relevés</string>
+    <string name="btnMoyenneReleve">Moyenne des Relevés</string>
+    <string name="titre_saisie">Saisir un Relevé</string>
+    <string name="heure_00">00H</string>
+    <string name="heure_6">6H</string>
+    <string name="heure_12">12H</string>
+    <string name="heure_18">18H</string>
+
+</resources>
