@@ -10,5 +10,8 @@
     <string name="heure_6">6H</string>
     <string name="heure_12">12H</string>
     <string name="heure_18">18H</string>
+    <string name="titre_liste">Liste des Relevés</string>
+    <string name="btnretour">Retour</string>
+    <string name="btnenreg">Enregistrer</string>
 
 </resources>

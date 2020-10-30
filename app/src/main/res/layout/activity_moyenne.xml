@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/logoTemperoListe"
+            android:layout_gravity="center"
+            android:layout_width="106dp"
+            android:layout_height="174dp"
+            app:srcCompat="@drawable/logotemperocalor" />
+
+        <LinearLayout
+            android:layout_width="416dp"
+            android:layout_height="595dp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:translationY="180dp">
+
+                <RadioButton
+                    android:id="@+id/radioButton_heure_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heure_6" />
+
+                <RadioButton
+                    android:id="@+id/radioButton_heure_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heure_12"
+                    android:translationX="75dp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton_heure_18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heure_18"
+                    android:translationX="140dp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton_heure_00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heure_00"
+                    android:translationX="180dp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/titre_Liste2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/titre_liste"
+                android:translationX="160dp" />
+
+            <Spinner
+                android:id="@+id/MoisSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="41dp" />
+
+            <Spinner
+                android:id="@+id/nomLacSpinnerListe2"
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:id="@+id/unitéSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:text="TextView"
+                android:translationY="50dp" />
+
+            <Button
+                android:id="@+id/buttonRetour3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnretour"
+                android:translationY="50dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

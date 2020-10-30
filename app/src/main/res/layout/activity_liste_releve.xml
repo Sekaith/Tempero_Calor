@@ -1,6 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/LogoTemperoListe"
+            android:layout_width="106dp"
+            android:layout_height="174dp"
+            android:layout_gravity="center"
+            android:contentDescription="Erreur_Affichage"
+            android:visibility="visible"
+            app:srcCompat="@drawable/logotemperocalor"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="412dp"
+            android:layout_height="575dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titre_Liste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/titre_liste"
+                android:translationX="160dp" />
+
+            <CalendarView
+                android:id="@+id/calendrierListe"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/nomLacSpinnerListe"
+                    android:layout_width="212dp"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown" />
+
+                <Spinner
+                    android:id="@+id/unitéSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/AffichageRelevé1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AffichageRelevé1" />
+
+            <TextView
+                android:id="@+id/AffichageRelevé2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AffichageRelevé2" />
+
+            <TextView
+                android:id="@+id/AffichageRelevé3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AffichageRelevé3" />
+
+            <TextView
+                android:id="@+id/AffichageRelevé4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AffichageRelevé4" />
+
+            <Button
+                android:id="@+id/buttonRetour2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnretour" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

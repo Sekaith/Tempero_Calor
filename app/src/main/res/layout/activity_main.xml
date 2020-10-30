@@ -6,60 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="106dp"
-        android:layout_height="174dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logotemperocalor"
-        tools:layout_editor_absoluteY="-3dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="137dp"
-        android:layout_height="82dp"
-        android:text="@string/accueil"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="179dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/auteurs"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="683dp" />
-
     <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="484dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="199dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonSaisieReleve"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="0"
-            android:text="@string/btnSaisieReleve"
-            android:translationY="100" />
+        <ImageView
+            android:id="@+id/LogoTemperoAccueil"
+            android:layout_gravity="center"
+            android:layout_width="106dp"
+            android:layout_height="174dp"
+            app:srcCompat="@drawable/logotemperocalor" />
 
-        <Button
-            android:id="@+id/buttonListeReleve"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/Titre_accueil"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btnListeReleve"
-            android:translationY="150" />
+            android:layout_gravity="center"
+            android:text="@string/accueil" />
 
-        <Button
-            android:id="@+id/buttonMoyenne"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="458dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttonSaisieReleve"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="0dp"
+                android:text="@string/btnSaisieReleve"
+                android:translationY="100dp" />
+
+            <Button
+                android:id="@+id/buttonListeReleve"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnListeReleve"
+                android:translationY="150dp" />
+
+            <Button
+                android:id="@+id/buttonMoyenne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnMoyenneReleve"
+                android:translationY="200dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/credit"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btnMoyenneReleve"
-            android:translationY="200" />
+            android:text="@string/auteurs" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

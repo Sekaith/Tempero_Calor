@@ -16,11 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity_saisir_releve">
+        <activity android:name=".ActivitySaisirReleve">
         </activity>
-        <activity android:name=".Activity_liste_releve">
+        <activity android:name=".ActivityListeReleve">
         </activity>
-        <activity android:name=".Activity_moyenne">
+        <activity android:name=".ActivityMoyenne">
         </activity>
     </application>
 
