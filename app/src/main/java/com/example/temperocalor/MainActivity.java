@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Accès au menu pour saisir un relevé
         Button saisirReleve = findViewById(R.id.buttonSaisieReleve);
         View.OnClickListener ecouteur1 = new View.OnClickListener() {
             @Override
