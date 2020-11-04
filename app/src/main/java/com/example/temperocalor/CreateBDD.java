@@ -10,10 +10,11 @@ public class CreateBDD extends SQLiteOpenHelper {
     private static final String TABLE_LAC = "tlac";
     static final String COL_IDLAC = "_id";
     private static final String COL_NOMLAC = "NomLac";
-    private static final String COL_COORD = "Coordonnées";
+    private static final String COL_COORDX = "Coordonnée_X";
+    private static final String COL_COORDY = "Coordonnée_Y";
     private static final String CREATE_TABLELAC = "CREATE TABLE " +
             TABLE_LAC + " ("+COL_IDLAC+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            COL_NOMLAC + " TEXT NOT NULL, " + COL_COORD + " TEXT NOT NULL);";
+            COL_NOMLAC + " TEXT NOT NULL, " + COL_COORDX + " TEXT NOT NULL, " + COL_COORDY + " TEXT NOT NULL);";
     private static final String TABLE_RELEVE = "treleve";
     static final String COL_IDRELEVE = "_id";
     private static final String COL_JOUR = "Jour";
@@ -24,7 +25,7 @@ public class CreateBDD extends SQLiteOpenHelper {
     private static final String COL_TEMP24 = "Temp24";
     private static final String CREATE_TABLERELEVE = "CREATE TABLE " +
             TABLE_LAC + " ("+COL_IDRELEVE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            COL_JOUR + " TEXT NOT NULL, " + COL_MOIS + " TEXT NOT NULL" + COL_TEMP6 + " TEXT NOT NULL" + COL_COORD + " TEXT NOT NULL " + COL_TEMP12 +
+            COL_JOUR + " TEXT NOT NULL, " + COL_MOIS + " TEXT NOT NULL" + COL_TEMP6 + " TEXT NOT NULL" + COL_TEMP12 +
             " TEXT NOT NULL" + COL_TEMP18 + " TEXT NOT NULL" + COL_TEMP24 + " TEXT NOT NULL" + COL_IDLAC + " TEXT NOT NULL);";
 
 
