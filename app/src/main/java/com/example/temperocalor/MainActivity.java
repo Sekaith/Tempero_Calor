@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         remplirTable();
         setContentView(R.layout.activity_main);
         //Accès au menu pour saisir un relevé
