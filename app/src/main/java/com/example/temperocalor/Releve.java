@@ -8,9 +8,9 @@ public class Releve {
     protected String temp12h;
     protected String temp18h;
     protected String temp24h;
-    protected Lac idLac;
+    protected int idLac;
 
-    public Releve(String idReleve, int jour, String mois, String temp6h, String temp12h, String temp18h, String temp24h, Lac idLac) {
+    public Releve(String idReleve, int jour, String mois, String temp6h, String temp12h, String temp18h, String temp24h, int idLac) {
         this.idReleve = idReleve;
         this.jour = jour;
         this.mois = mois;
@@ -77,11 +77,11 @@ public class Releve {
         this.temp24h = temp24h;
     }
 
-    public Lac getIdLac() {
+    public int getIdLac() {
         return idLac;
     }
 
-    public void setIdLac(Lac idLac) {
+    public void setIdLac(int idLac) {
         this.idLac = idLac;
     }
 

@@ -14,23 +14,23 @@ public class CreateBDD extends SQLiteOpenHelper {
     private static final String COL_COORDY = "Coordonnée_Y";
     private static final String CREATE_TABLELAC = "CREATE TABLE " +
             TABLE_LAC + " ("+COL_IDLAC+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            COL_NOMLAC + " TEXT NOT NULL, " + COL_COORDX + " TEXT NOT NULL, " + COL_COORDY + " TEXT NOT NULL);";
+            COL_NOMLAC + " TEXT , " + COL_COORDX + " TEXT , " + COL_COORDY + " TEXT);";
     private static final String TABLE_RELEVE = "treleve";
     static final String COL_IDRELEVE = "_id";
     private static final String COL_JOUR = "Jour";
-    private static final String COL_MOIS = "Jour";
+    private static final String COL_MOIS = "Mois";
     private static final String COL_TEMP6 = "Temp6";
     private static final String COL_TEMP12 = "Temp12";
     private static final String COL_TEMP18 = "Temp18";
     private static final String COL_TEMP24 = "Temp24";
+    private static final String COL_IDLACR = "IDLACR";
     private static final String CREATE_TABLERELEVE = "CREATE TABLE " +
-            TABLE_LAC + " ("+COL_IDRELEVE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            COL_JOUR + " TEXT NOT NULL, " + COL_MOIS + " TEXT NOT NULL" + COL_TEMP6 + " TEXT NOT NULL" + COL_TEMP12 +
-            " TEXT NOT NULL" + COL_TEMP18 + " TEXT NOT NULL" + COL_TEMP24 + " TEXT NOT NULL" + COL_IDLAC + " TEXT NOT NULL);";
+            TABLE_RELEVE + " ("+COL_IDRELEVE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
+            COL_JOUR + " TEXT , " + COL_MOIS + " TEXT ," + COL_TEMP6 + " TEXT,  " + COL_TEMP12 +
+            " TEXT,  " + COL_TEMP18 + " TEXT,  " + COL_TEMP24 + " TEXT,  " + COL_IDLACR + " TEXT );";
 
 
-    public CreateBDD(Context context, String name, SQLiteDatabase.CursorFactory
-            factory, int version) {
+    public CreateBDD(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
     @Override
