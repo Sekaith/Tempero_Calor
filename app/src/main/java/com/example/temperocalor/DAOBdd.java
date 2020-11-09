@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DAOBdd {
     static final int VERSION_BDD =1;
     private static final String NOM_BDD = "tempv1.db";
@@ -113,6 +116,7 @@ public class DAOBdd {
         c.close(); //On ferme le cursor
         return unReleve; //On retourne le client
     }
+
     public Lac getLacWithNomLac(String nom){
         //Récupère dans un Cursor les valeurs correspondant à un article grâce à sa designation
         Cursor c = db.query(TABLE_LAC, new String[]
@@ -131,4 +135,18 @@ public class DAOBdd {
     public Cursor getDataReleve(){
         return db.rawQuery("SELECT * FROM treleve", null);
     }
+    public List<String> getAllNomLac() {
+       List<String> listeNom = new ArrayList<>();
+       Cursor c1 = db.rawQuery("SELECT Nom FROM tlac", null);
+       if(c1.moveToFirst()){
+           do{
+               listeNom.add(c1.getString(0));
+           } while (c1.moveToNext());
+
+       }
+        c1.close();
+        return listeNom;
+
+    }
+
 }
