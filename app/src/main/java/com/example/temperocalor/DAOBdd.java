@@ -140,15 +140,21 @@ public class DAOBdd {
                 {COL_IDRELEVE,COL_DATE, COL_TEMP6, COL_TEMP12, COL_TEMP18, COL_TEMP24, COL_IDLACR}, COL_IDRELEVE + " =\"" + id +"\"", null, null, null, null);
         return cursorToReleve(c);
     }
+
+
     public Cursor getDataLac(){
         return db.rawQuery("SELECT * FROM tlac", null);
     }
+
+
     public Cursor getDataReleve(){
         return db.rawQuery("SELECT * FROM treleve", null);
     }
+
+
     public List<String> getAllNomLac() {
        List<String> listeNom = new ArrayList<>();
-       Cursor c1 = db.rawQuery("SELECT Nom FROM tlac", null);
+       Cursor c1 = db.rawQuery("SELECT NomLac FROM tlac", null);
        if(c1.moveToFirst()){
            do{
                listeNom.add(c1.getString(0));
@@ -158,6 +164,10 @@ public class DAOBdd {
         c1.close();
         return listeNom;
 
+    }
+    public long dropLac()
+    {
+        return db.delete(TABLE_LAC, null, null);
     }
 
 }

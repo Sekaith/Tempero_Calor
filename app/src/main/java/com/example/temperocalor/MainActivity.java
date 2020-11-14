@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //viderTableLac()
         remplirTable();
         setContentView(R.layout.activity_main);
         //Accès au menu pour saisir un relevé
@@ -50,12 +50,19 @@ public class MainActivity extends AppCompatActivity {
     }
     public void remplirTable () {
         DAOBdd lacBDD = new DAOBdd(this);
-        Lac lac1 = new Lac("01", "Sainte-Croix", 43.771450, 6.189804);
-        Lac lac2 = new Lac("02", "Bourget", 45.729632 , 5.869561);
+        Lac lac1 = new Lac("00", "Sainte-Croix", 43.771450, 6.189804);
+        Lac lac2 = new Lac("01", "Bourgettte", 45.729632 , 5.869561);
         lacBDD.open();
         lacBDD.insererLac(lac1);
         lacBDD.insererLac(lac2);
+
         Cursor c = lacBDD.getDataLac();
         Toast.makeText(getApplicationContext(), " il y a " + String.valueOf(c.getCount()) + " lacs ", Toast.LENGTH_LONG).show();
+    }
+    public void viderTableLac()
+    {
+        DAOBdd lacBDD = new DAOBdd(this);
+        lacBDD.open();
+        lacBDD.dropLac();
     }
 }

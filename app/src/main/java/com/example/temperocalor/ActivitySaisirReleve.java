@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
@@ -41,13 +42,19 @@ public class ActivitySaisirReleve extends Activity {
         final Spinner nom = findViewById(R.id.nomLacSpinner);
         final EditText ReleveTemp = findViewById(R.id.editTextReleveTemp);
         List lesLacs = Bdd.getAllNomLac();
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, lesLacs);
+        String Test = lesLacs.get(1).toString();
+        Toast.makeText(ActivitySaisirReleve.this,Test , Toast.LENGTH_SHORT).show();
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lesLacs);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nom.setAdapter(arrayAdapter);
-        nom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        nom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 unLac[0] = String.valueOf(nom.getSelectedItem());
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView){
+
             }
         });
         date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -76,6 +83,36 @@ public class ActivitySaisirReleve extends Activity {
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
                                 Releve releve = new Releve(null,DateText.toString(), ReleveTemp.toString(),null,null,null,IdLac);
+                                Bdd.insererReleve(releve);
+                                Bdd.close();
+                                finish();
+                                break;
+                            }
+                            if(heure12.isChecked()){
+
+                                String Nlac = nom.getSelectedItem().toString();
+                                String IdLac = Bdd.getIdFromNom(Nlac);
+                                Releve releve = new Releve(null,DateText.toString(), null,ReleveTemp.toString(),null,null,IdLac);
+                                Bdd.insererReleve(releve);
+                                Bdd.close();
+                                finish();
+                                break;
+                            }
+                            if(heure18.isChecked()){
+
+                                String Nlac = nom.getSelectedItem().toString();
+                                String IdLac = Bdd.getIdFromNom(Nlac);
+                                Releve releve = new Releve(null,DateText.toString(), null,null,ReleveTemp.toString(),null,IdLac);
+                                Bdd.insererReleve(releve);
+                                Bdd.close();
+                                finish();
+                                break;
+                            }
+                            if(heure00.isChecked()){
+
+                                String Nlac = nom.getSelectedItem().toString();
+                                String IdLac = Bdd.getIdFromNom(Nlac);
+                                Releve releve = new Releve(null,DateText.toString(), null,null,null,ReleveTemp.toString(),IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();

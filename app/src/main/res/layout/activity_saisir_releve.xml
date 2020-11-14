@@ -82,11 +82,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
                 android:ems="10"
-                android:hint="Exemple"
+                android:hint="Temperature (En celsius)"
                 android:inputType="textPersonName"
-                android:text="Exemple"
-                android:translationY="40dp"
-                tools:text="Exemple" />
+                android:translationY="40dp" />
 
         </LinearLayout>
 

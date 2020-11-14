@@ -22,7 +22,7 @@ public class CreateBDD extends SQLiteOpenHelper {
     private static final String COL_TEMP12 = "Temp12";
     private static final String COL_TEMP18 = "Temp18";
     private static final String COL_TEMP24 = "Temp24";
-    private static final String COL_IDLACR = "IDLACR";
+    private static final String COL_IDLACR = "IdLac";
     private static final String CREATE_TABLERELEVE = "CREATE TABLE " +
             TABLE_RELEVE + " ("+COL_IDRELEVE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
             COL_DATE + " TEXT ," + COL_TEMP6 + " TEXT,  " + COL_TEMP12 +
@@ -38,6 +38,8 @@ public class CreateBDD extends SQLiteOpenHelper {
         //on créé la table à partir de la requête écrite dans la variable CREATE_BDD
         db.execSQL(CREATE_TABLELAC);
         db.execSQL(CREATE_TABLERELEVE);
+
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
