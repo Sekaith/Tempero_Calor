@@ -8,40 +8,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="417dp"
-            android:layout_height="557dp"
+            android:layout_height="502dp"
             android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/LogoTemperoSaisie"
-                android:layout_width="106dp"
-                android:layout_height="133dp"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/logotemperocalor" />
 
             <TextView
                 android:id="@+id/titre_saisie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/titre_saisie"
-                android:translationX="160dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:translationX="160dp" />
 
             <TextView
                 android:id="@+id/DateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Choisir une date"
-                android:translationX="160dp"
-                 />
+                android:translationX="160dp" />
 
             <CalendarView
                 android:id="@+id/calendrierSaisie"
                 android:layout_width="match_parent"
-                android:layout_height="60dp" />
+                android:layout_height="296dp" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -80,38 +74,32 @@
             <Spinner
                 android:id="@+id/nomLacSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:translationY="50dp" />
+                android:layout_height="44dp"
+                android:translationY="40dp" />
 
             <EditText
                 android:id="@+id/editTextReleveTemp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:ems="10"
                 android:hint="Exemple"
                 android:inputType="textPersonName"
                 android:text="Exemple"
-                android:translationY="70dp"
+                android:translationY="40dp"
                 tools:text="Exemple" />
-
-            <com.google.android.gms.maps.MapView
-                android:id="@+id/mapView"
-                android:layout_width="match_parent"
-                android:layout_height="244dp"
-                android:translationY="100dp" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/buttonEnregistrer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
             android:text="@string/btnenreg" />
 
         <Button
             android:id="@+id/buttonRetour"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="59dp"
             android:text="@string/btnretour" />
 
     </LinearLayout>

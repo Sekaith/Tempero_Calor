@@ -3,6 +3,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ActivitySaisirReleve extends Activity {
     @Override
@@ -29,6 +31,7 @@ public class ActivitySaisirReleve extends Activity {
         Bdd.open();
 
         //récupération des données saisies
+        final String[] unLac = new String[1];
         final CalendarView date = findViewById(R.id.calendrierSaisie);
         final TextView DateText = findViewById(R.id.DateText);
         final RadioButton heure6 = findViewById(R.id.radioButton_heure_6);
@@ -37,13 +40,16 @@ public class ActivitySaisirReleve extends Activity {
         final RadioButton heure00 = findViewById(R.id.radioButton_heure_00);
         final Spinner nom = findViewById(R.id.nomLacSpinner);
         final EditText ReleveTemp = findViewById(R.id.editTextReleveTemp);
-        final ArrayList<String> listeLac = new ArrayList<>();
-        listeLac.add("Lac1");
-        listeLac.add("Lac2");
-        listeLac.add("Lac3");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, listeLac);
+        List lesLacs = Bdd.getAllNomLac();
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, lesLacs);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nom.setAdapter(arrayAdapter);
+        nom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                unLac[0] = String.valueOf(nom.getSelectedItem());
+            }
+        });
         date.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
                                          @Override
                                          public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
