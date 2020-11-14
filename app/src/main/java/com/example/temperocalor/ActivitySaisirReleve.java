@@ -82,7 +82,7 @@ public class ActivitySaisirReleve extends Activity {
 
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(null,DateText.toString(), ReleveTemp.toString(),null,null,null,IdLac);
+                                Releve releve = new Releve(DateText.toString(), ReleveTemp.toString(),null,null,null,IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();
@@ -92,7 +92,7 @@ public class ActivitySaisirReleve extends Activity {
 
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(null,DateText.toString(), null,ReleveTemp.toString(),null,null,IdLac);
+                                Releve releve = new Releve( DateText.toString(), "",ReleveTemp.toString(),"","",IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();
@@ -102,7 +102,7 @@ public class ActivitySaisirReleve extends Activity {
 
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(null,DateText.toString(), null,null,ReleveTemp.toString(),null,IdLac);
+                                Releve releve = new Releve(DateText.toString(), "","",ReleveTemp.toString(),"",IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();
@@ -112,7 +112,7 @@ public class ActivitySaisirReleve extends Activity {
 
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(null,DateText.toString(), null,null,null,ReleveTemp.toString(),IdLac);
+                                Releve releve = new Releve(DateText.toString(), "","","",ReleveTemp.toString(),IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();

@@ -17,16 +17,16 @@ public class CreateBDD extends SQLiteOpenHelper {
             COL_NOMLAC + " TEXT , " + COL_COORDX + " TEXT , " + COL_COORDY + " TEXT);";
     private static final String TABLE_RELEVE = "treleve";
     static final String COL_IDRELEVE = "_id";
-    private static final String COL_DATE = "Date";
+    private static final String COL_DATER = "DateR";
     private static final String COL_TEMP6 = "Temp6";
     private static final String COL_TEMP12 = "Temp12";
     private static final String COL_TEMP18 = "Temp18";
     private static final String COL_TEMP24 = "Temp24";
-    private static final String COL_IDLACR = "IdLac";
+    private static final String COL_IDLACR = "IdLacr";
     private static final String CREATE_TABLERELEVE = "CREATE TABLE " +
             TABLE_RELEVE + " ("+COL_IDRELEVE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            COL_DATE + " TEXT ," + COL_TEMP6 + " INTEGER,  " + COL_TEMP12 +
-            " INTEGER,  " + COL_TEMP18 + " INTEGER,  " + COL_TEMP24 + " INTEGER,  " + COL_IDLACR + " TEXT );";
+            COL_DATER + " TEXT ," + COL_TEMP6 + " TEXT,  " + COL_TEMP12 +
+            " TEXT,  " + COL_TEMP18 + " TEXT,  " + COL_TEMP24 + " TEXT,  " + COL_IDLACR + " INTEGER );";
 
 
     public CreateBDD(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

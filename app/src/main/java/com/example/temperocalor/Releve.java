@@ -1,30 +1,30 @@
 package com.example.temperocalor;
 
 public class Releve {
-    protected String idReleve;
+    protected String IdReleve;
     protected String Date;
     protected String temp6h;
     protected String temp12h;
     protected String temp18h;
     protected String temp24h;
-    protected String idLac;
+    protected String IdLacr;
 
-    public Releve(String idReleve, String Date, String temp6h, String temp12h, String temp18h, String temp24h, String idLac) {
-        this.idReleve = idReleve;
+    public Releve(String Date, String temp6h, String temp12h, String temp18h, String temp24h, String IdLacr) {
+        this.IdReleve = IdReleve;
         this.Date = Date;
         this.temp6h = temp6h;
         this.temp12h = temp12h;
         this.temp18h = temp18h;
         this.temp24h = temp24h;
-        this.idLac = idLac;
+        this.IdLacr = IdLacr;
     }
 
     public String getIdReleve() {
-        return idReleve;
+        return IdReleve;
     }
 
-    public void setIdReleve(String idReleve) {
-        this.idReleve = idReleve;
+    public void setIdReleve(String IdReleve) {
+        this.IdReleve = IdReleve;
     }
 
     public String getDate() {return Date;}
@@ -63,12 +63,12 @@ public class Releve {
         this.temp24h = temp24h;
     }
 
-    public String getIdLac() {
-        return idLac;
+    public String getIdLacr() {
+        return IdLacr;
     }
 
-    public void setIdLac(String idLac) {
-        this.idLac = idLac;
+    public void setIdLacr(String IdLacr) {
+        this.IdLacr = IdLacr;
     }
 
 }

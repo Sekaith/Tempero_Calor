@@ -13,16 +13,6 @@
         android:visibility="visible"
         tools:visibility="visible">
 
-        <ImageView
-            android:id="@+id/LogoTemperoListe"
-            android:layout_width="106dp"
-            android:layout_height="174dp"
-            android:layout_gravity="center"
-            android:contentDescription="Erreur_Affichage"
-            android:visibility="visible"
-            app:srcCompat="@drawable/logotemperocalor"
-            tools:visibility="visible" />
-
         <LinearLayout
             android:layout_width="412dp"
             android:layout_height="575dp"
