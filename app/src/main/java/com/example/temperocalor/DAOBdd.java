@@ -177,18 +177,45 @@ public class DAOBdd {
         //c.close(); //On ferme le cursor
         return Temp; //On retourne la temperature
     }
-    public List<String> getTempReleve (String date, String idlac){
-        List<String> listeTemp = new ArrayList<>();
+    public String getTemp6Releve (String date, String idlac){
+        String Temp6 = "0";
         Cursor c1 = db.rawQuery("SELECT Temp6, Temp12, Temp18, Temp24 FROM treleve WHERE DateR = "+ "'"+date+"'"+ " AND IdLacr = " +idlac , null);
         if (c1.moveToFirst()) {
-            listeTemp.add(cursorToTemp6(c1));
-            listeTemp.add(cursorToTemp12(c1));
-            listeTemp.add(cursorToTemp18(c1));
-            listeTemp.add(cursorToTemp00(c1));
+            Temp6 = cursorToTemp6(c1).toString();
         }
         c1.close();
 
-        return listeTemp;
+        return Temp6;
+    }
+    public String getTemp12Releve (String date, String idlac){
+        String Temp12 = "0";
+        Cursor c1 = db.rawQuery("SELECT Temp6, Temp12, Temp18, Temp24 FROM treleve WHERE DateR = "+ "'"+date+"'"+ " AND IdLacr = " +idlac , null);
+        if (c1.moveToFirst()) {
+            Temp12 = cursorToTemp12(c1).toString();
+        }
+        c1.close();
+
+        return Temp12;
+    }
+    public String getTemp18Releve (String date, String idlac){
+        String Temp18 = "0";
+        Cursor c1 = db.rawQuery("SELECT Temp6, Temp12, Temp18, Temp24 FROM treleve WHERE DateR = "+ "'"+date+"'"+ " AND IdLacr = " +idlac , null);
+        if (c1.moveToFirst()) {
+            Temp18 = cursorToTemp18(c1).toString();
+        }
+        c1.close();
+
+        return Temp18;
+    }
+    public String getTemp00Releve (String date, String idlac){
+        String Temp00 = "0";
+        Cursor c1 = db.rawQuery("SELECT Temp6, Temp12, Temp18, Temp24 FROM treleve WHERE DateR = "+ "'"+date+"'"+ " AND IdLacr = " +idlac , null);
+        if (c1.moveToFirst()) {
+            Temp00 = cursorToTemp00(c1).toString();
+        }
+        c1.close();
+
+        return Temp00;
     }
 
 
@@ -237,8 +264,8 @@ public class DAOBdd {
     }
     public void dropRel()
     {
-        db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + TABLE_LAC + "'");
-        db.execSQL("delete from " + TABLE_LAC);
+        db.execSQL("DELETE FROM SQLITE_SEQUENCE WHERE NAME = '" + TABLE_RELEVE + "'");
+        db.execSQL("delete from " + TABLE_RELEVE);
 
     }
 

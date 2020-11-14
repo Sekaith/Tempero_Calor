@@ -41,7 +41,7 @@ public class ActivityListeReleve extends Activity {
         final Spinner unité = findViewById(R.id.unitéSpinner);
         List lesLacs = Bdd.getAllNomLac();
         String Test = lesLacs.get(1).toString();
-
+        //Toast.makeText(getApplicationContext(), Bdd.getTemp6Releve("16-11-2020", "1"), Toast.LENGTH_LONG).show();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lesLacs);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nom.setAdapter(arrayAdapter);
@@ -79,14 +79,16 @@ public class ActivityListeReleve extends Activity {
                         String Nlac = nom.getSelectedItem().toString();
                         final String IdLac = Bdd.getIdFromNom(Nlac);
                         String Date = DateText.getText().toString();
-                        List<String> listeTemp = new ArrayList<>();
-                       List lesTemp = Bdd.getTempReleve(Date, IdLac);
+                        String Temp6t = Bdd.getTemp6Releve(Date, IdLac);
+                        String Temp12t = Bdd.getTemp12Releve(Date, IdLac);
+                        String Temp18t = Bdd.getTemp18Releve(Date, IdLac);
+                        String Temp00t = Bdd.getTemp00Releve(Date, IdLac);
                         //Toast.makeText(getApplicationContext(), IdLac +" "+ Date, Toast.LENGTH_LONG).show();
                         //Toast.makeText(getApplicationContext(), Bdd.getTempReleve(Date, IdLac).toString(), Toast.LENGTH_LONG).show();
-                       Temp6.setText(lesTemp.get(0).toString());
-                       Temp12.setText(lesTemp.get(1).toString());
-                       Temp18.setText(lesTemp.get(2).toString());
-                       Temp00.setText(lesTemp.get(3).toString());
+                       Temp6.setText(Temp6t);
+                       Temp12.setText(Temp12t);
+                       Temp18.setText(Temp18t);
+                       Temp00.setText(Temp00t);
                         break;
 
                     case R.id.buttonRetour2:

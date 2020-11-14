@@ -14,13 +14,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //viderTable();
+        //viderTableR();
+        //viderTableL();
         //remplirTable();
         final DAOBdd Bdd = new DAOBdd(this);
         Bdd.open();
-        //Toast.makeText(getApplicationContext(), Bdd.getTempReleve("14-11-2020", "17").toString(), Toast.LENGTH_LONG).show();
-        Toast.makeText(getApplicationContext(), Bdd.getAllLac().toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), Bdd.getTemp6Releve("15-11-2020", "1").toString(), Toast.LENGTH_LONG).show();
         //Toast.makeText(getApplicationContext(), Bdd.getAllLac().toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "V02", Toast.LENGTH_LONG).show();
         setContentView(R.layout.activity_main);
         //Accès au menu pour saisir un relevé
         Button saisirReleve = findViewById(R.id.buttonSaisieReleve);
@@ -55,23 +56,25 @@ public class MainActivity extends AppCompatActivity {
     }
     public void remplirTable () {
         DAOBdd lacBDD = new DAOBdd(this);
+        lacBDD.open();
         Lac lac1 = new Lac( "Lac01", 43.771450, 6.189804);
         Lac lac2 = new Lac("Lac02", 45.729632, 5.869561);
-        Releve r1 = new Releve( "14-11-2020", "14", "15", "16", "17", "1");
-        Releve r2 = new Releve( "14-11-2020", "24", "25", "26", "27", "2");
-        lacBDD.open();
+
         lacBDD.insererLac(lac1);
         lacBDD.insererLac(lac2);
-        lacBDD.insererReleve(r1);
-        lacBDD.insererReleve(r2);
         Cursor c1 = lacBDD.getDataReleve();
 
     }
 
-    public void viderTable() {
+    public void viderTableL() {
         DAOBdd lacBDD = new DAOBdd(this);
         lacBDD.open();
         lacBDD.dropLac();
         lacBDD.dropRel();
+    }
+    public void viderTableR() {
+        DAOBdd relBDD = new DAOBdd(this);
+        relBDD.open();
+        relBDD.dropRel();
     }
 }

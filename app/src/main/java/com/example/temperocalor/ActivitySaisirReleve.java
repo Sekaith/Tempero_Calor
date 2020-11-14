@@ -43,7 +43,6 @@ public class ActivitySaisirReleve extends Activity {
         final EditText ReleveTemp = findViewById(R.id.editTextReleveTemp);
         List lesLacs = Bdd.getAllNomLac();
         String Test = lesLacs.get(1).toString();
-        Toast.makeText(ActivitySaisirReleve.this,Test , Toast.LENGTH_SHORT).show();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lesLacs);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         nom.setAdapter(arrayAdapter);
@@ -78,11 +77,15 @@ public class ActivitySaisirReleve extends Activity {
 
                     switch (v.getId()) {
                         case R.id.buttonEnregistrer:
+
                             if(heure6.isChecked()){
 
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(DateText.toString(), ReleveTemp.toString(),null,null,null,IdLac);
+                                //Toast.makeText(getApplicationContext(), DateText.getText().toString(), Toast.LENGTH_LONG).show();
+                                String Temp = ReleveTemp.getText().toString();
+                                Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
+                                Releve releve = new Releve(DateText.getText().toString(), Temp,"","","",IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();
@@ -92,7 +95,7 @@ public class ActivitySaisirReleve extends Activity {
 
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve( DateText.toString(), "",ReleveTemp.toString(),"","",IdLac);
+                                Releve releve = new Releve( DateText.toString(), null,ReleveTemp.getText().toString(),"","",IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();
@@ -102,7 +105,7 @@ public class ActivitySaisirReleve extends Activity {
 
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(DateText.toString(), "","",ReleveTemp.toString(),"",IdLac);
+                                Releve releve = new Releve(DateText.toString(), "","",ReleveTemp.getText().toString(),"",IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();
@@ -112,7 +115,7 @@ public class ActivitySaisirReleve extends Activity {
 
                                 String Nlac = nom.getSelectedItem().toString();
                                 String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(DateText.toString(), "","","",ReleveTemp.toString(),IdLac);
+                                Releve releve = new Releve(DateText.toString(), "","","",ReleveTemp.getText().toString(),IdLac);
                                 Bdd.insererReleve(releve);
                                 Bdd.close();
                                 finish();
