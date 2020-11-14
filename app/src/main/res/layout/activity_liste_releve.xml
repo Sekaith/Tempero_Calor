@@ -62,6 +62,7 @@
                     android:id="@+id/unitéSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
+                    android:entries="@array/spinnerItems"
                     android:spinnerMode="dropdown" />
             </LinearLayout>
 
@@ -92,6 +93,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Temperature 00h" />
+
+            <Button
+                android:id="@+id/buttonValider2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Valider" />
 
             <Button
                 android:id="@+id/buttonRetour2"

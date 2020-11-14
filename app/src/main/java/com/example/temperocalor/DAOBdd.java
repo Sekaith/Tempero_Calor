@@ -94,7 +94,7 @@ public class DAOBdd {
         c.close(); //On ferme le cursor
         return unLac; //On retourne le client
     }
-    private Releve cursorToReleve(Cursor c){ //Cette méthode permet de convertir un cursor en un client
+    private Releve cursorToReleve(Cursor c){ //Cette méthode permet de convertir un cursor en un relevé
         //si aucun élément n'a été retourné dans la requête, on renvoie null
         if (c.getCount() == 0)
             return null;
@@ -132,13 +132,50 @@ public class DAOBdd {
         String Id;
         Id = c.getString(NUM_COL_IDLAC);
         c.close(); //On ferme le cursor
-        return Id; //On retourne le client
+        return Id; //On retourne l'id
     }
     public Releve getReleveWithId(int id){
         //Récupère dans un Cursor les valeurs correspondant à un article grâce à sa designation
         Cursor c = db.query(TABLE_RELEVE, new String[]
                 {COL_IDRELEVE,COL_DATE, COL_TEMP6, COL_TEMP12, COL_TEMP18, COL_TEMP24, COL_IDLACR}, COL_IDRELEVE + " =\"" + id +"\"", null, null, null, null);
         return cursorToReleve(c);
+    }
+    public String cursorToTemp6(Cursor c){
+        c.moveToFirst(); //on se place sur le premier élément
+        String Temp;
+        Temp = c.getString(NUM_COL_TEMP6);
+        c.close(); //On ferme le cursor
+        return Temp; //On retourne la temperature
+    }
+    public String cursorToTemp12(Cursor c){
+        c.moveToFirst(); //on se place sur le premier élément
+        String Temp;
+        Temp = c.getString(NUM_COL_TEMP12);
+        c.close(); //On ferme le cursor
+        return Temp; //On retourne la temperature
+    }
+    public String cursorToTemp18(Cursor c){
+        c.moveToFirst(); //on se place sur le premier élément
+        String Temp;
+        Temp = c.getString(NUM_COL_TEMP18);
+        c.close(); //On ferme le cursor
+        return Temp; //On retourne la temperature
+    }
+    public String cursorToTemp00(Cursor c){
+        c.moveToFirst(); //on se place sur le premier élément
+        String Temp;
+        Temp = c.getString(NUM_COL_TEMP24);
+        c.close(); //On ferme le cursor
+        return Temp; //On retourne la temperature
+    }
+    public List<String> getTempReleve (String date, String idlac){
+        List<String> listeTemp = new ArrayList<>();
+        Cursor c1 = db.rawQuery("SELECT Temp6, Temp12, Temp18, Temp00  FROM treleve WHERE Date = date AND IdLac = idlac", null);
+        listeTemp.add(cursorToTemp6(c1));
+        listeTemp.add(cursorToTemp12(c1));
+        listeTemp.add(cursorToTemp18(c1));
+        listeTemp.add(cursorToTemp00(c1));
+        return listeTemp;
     }
 
 

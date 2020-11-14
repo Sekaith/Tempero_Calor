@@ -25,8 +25,8 @@ public class CreateBDD extends SQLiteOpenHelper {
     private static final String COL_IDLACR = "IdLac";
     private static final String CREATE_TABLERELEVE = "CREATE TABLE " +
             TABLE_RELEVE + " ("+COL_IDRELEVE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            COL_DATE + " TEXT ," + COL_TEMP6 + " TEXT,  " + COL_TEMP12 +
-            " TEXT,  " + COL_TEMP18 + " TEXT,  " + COL_TEMP24 + " TEXT,  " + COL_IDLACR + " TEXT );";
+            COL_DATE + " TEXT ," + COL_TEMP6 + " INTEGER,  " + COL_TEMP12 +
+            " INTEGER,  " + COL_TEMP18 + " INTEGER,  " + COL_TEMP24 + " INTEGER,  " + COL_IDLACR + " TEXT );";
 
 
     public CreateBDD(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
