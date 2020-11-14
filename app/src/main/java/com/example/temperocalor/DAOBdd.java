@@ -26,20 +26,18 @@ public class DAOBdd {
     static final String TABLE_RELEVE = "treleve";
     static final String COL_IDRELEVE = "_id";
     static final int NUM_COL_IDRELEVE = 0;
-    static final String COL_JOUR = "Jour";
-    static final int NUM_COL_JOUR = 1;
-    static final String COL_MOIS = "Mois";
-    static final int NUM_COL_MOIS = 2;
+    static final String COL_DATE = "Date";
+    static final int NUM_COL_DATE = 1;
     static final String COL_TEMP6 = "Temp6";
-    static final int NUM_COL_TEMP6 = 3;
+    static final int NUM_COL_TEMP6 = 2;
     static final String COL_TEMP12 = "Temp12";
-    static final int NUM_COL_TEMP12 = 4;
+    static final int NUM_COL_TEMP12 = 3;
     static final String COL_TEMP18 = "Temp18";
-    static final int NUM_COL_TEMP18 = 5;
+    static final int NUM_COL_TEMP18 = 4;
     static final String COL_TEMP24 = "Temp24";
-    static final int NUM_COL_TEMP24 = 6;
+    static final int NUM_COL_TEMP24 = 5;
     static final String COL_IDLACR = "IdLac";
-    static final int NUM_COL_IDLACR = 7;
+    static final int NUM_COL_IDLACR = 6;
     private CreateBDD tableCourante;
     private Context context;
     private SQLiteDatabase db;
@@ -72,8 +70,7 @@ public class DAOBdd {
         ContentValues values = new ContentValues();
         //on lui ajoute une valeur associé à une clé (qui est le nom de la colonne où on veut mettre la valeur)
         values.put(COL_IDRELEVE, unReleve.getIdReleve());
-        values.put(COL_JOUR, unReleve.getJour());
-        values.put(COL_MOIS, unReleve.getMois());
+        values.put(COL_DATE, unReleve.getDate());
         values.put(COL_TEMP6, unReleve.getTemp6h());
         values.put(COL_TEMP12, unReleve.getTemp12h());
         values.put(COL_TEMP18, unReleve.getTemp18h());
@@ -103,16 +100,15 @@ public class DAOBdd {
             return null;
         //Sinon
         c.moveToFirst(); //on se place sur le premier élément
-        Releve unReleve = new Releve(null,0,null,null, null, null, null, 0); //On créé un client
+        Releve unReleve = new Releve(null,null,null,null, null, null, null); //On créé un client
         //on lui affecte toutes les infos grâce aux infos contenues dans le Cursor
         unReleve.setIdReleve(c.getString(NUM_COL_IDRELEVE));
-        unReleve.setJour(c.getInt(NUM_COL_JOUR));
-        unReleve.setMois(c.getString(NUM_COL_MOIS));
+        unReleve.setDate(c.getString(NUM_COL_DATE));
         unReleve.setTemp6h(c.getString(NUM_COL_TEMP6));
         unReleve.setTemp12h(c.getString(NUM_COL_TEMP12));
         unReleve.setTemp18h(c.getString(NUM_COL_TEMP18));
         unReleve.setTemp24h(c.getString(NUM_COL_TEMP24));
-        unReleve.setIdLac(c.getInt(NUM_COL_IDLACR));
+        unReleve.setIdLac(c.getString(NUM_COL_IDLACR));
         c.close(); //On ferme le cursor
         return unReleve; //On retourne le client
     }
@@ -123,10 +119,25 @@ public class DAOBdd {
                 {COL_IDLAC,COL_NOMLAC, COL_COORDX, COL_COORDY, COL_NOMLAC}, COL_NOMLAC + " =\"" + nom +"\"", null, null, null, null);
         return cursorToLac(c);
     }
+
+    public String getIdFromNom(String Nom){
+
+        Cursor c = db.query(TABLE_LAC, new String[]
+                {COL_IDLAC}, COL_NOMLAC + " =\"" + Nom +"\"", null, null, null, null);
+        return cursorToId(c);
+
+    }
+    public String cursorToId(Cursor c){
+        c.moveToFirst(); //on se place sur le premier élément
+        String Id;
+        Id = c.getString(NUM_COL_IDLAC);
+        c.close(); //On ferme le cursor
+        return Id; //On retourne le client
+    }
     public Releve getReleveWithId(int id){
         //Récupère dans un Cursor les valeurs correspondant à un article grâce à sa designation
         Cursor c = db.query(TABLE_RELEVE, new String[]
-                {COL_IDRELEVE,COL_JOUR, COL_MOIS, COL_TEMP6, COL_TEMP12, COL_TEMP18, COL_TEMP24, COL_IDLACR}, COL_IDRELEVE + " =\"" + id +"\"", null, null, null, null);
+                {COL_IDRELEVE,COL_DATE, COL_TEMP6, COL_TEMP12, COL_TEMP18, COL_TEMP24, COL_IDLACR}, COL_IDRELEVE + " =\"" + id +"\"", null, null, null, null);
         return cursorToReleve(c);
     }
     public Cursor getDataLac(){

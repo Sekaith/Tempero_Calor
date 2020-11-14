@@ -18,7 +18,7 @@
             <ImageView
                 android:id="@+id/LogoTemperoSaisie"
                 android:layout_width="106dp"
-                android:layout_height="174dp"
+                android:layout_height="133dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/logotemperocalor" />
 
@@ -27,7 +27,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/titre_saisie"
-                android:translationX="160dp" />
+                android:translationX="160dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/DateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Choisir une date"
+                android:translationX="160dp"
+                 />
 
             <CalendarView
                 android:id="@+id/calendrierSaisie"
@@ -75,7 +84,7 @@
                 android:translationY="50dp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/editTextReleveTemp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

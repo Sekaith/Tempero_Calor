@@ -17,8 +17,7 @@ public class CreateBDD extends SQLiteOpenHelper {
             COL_NOMLAC + " TEXT , " + COL_COORDX + " TEXT , " + COL_COORDY + " TEXT);";
     private static final String TABLE_RELEVE = "treleve";
     static final String COL_IDRELEVE = "_id";
-    private static final String COL_JOUR = "Jour";
-    private static final String COL_MOIS = "Mois";
+    private static final String COL_DATE = "Date";
     private static final String COL_TEMP6 = "Temp6";
     private static final String COL_TEMP12 = "Temp12";
     private static final String COL_TEMP18 = "Temp18";
@@ -26,7 +25,7 @@ public class CreateBDD extends SQLiteOpenHelper {
     private static final String COL_IDLACR = "IDLACR";
     private static final String CREATE_TABLERELEVE = "CREATE TABLE " +
             TABLE_RELEVE + " ("+COL_IDRELEVE+" INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            COL_JOUR + " TEXT , " + COL_MOIS + " TEXT ," + COL_TEMP6 + " TEXT,  " + COL_TEMP12 +
+            COL_DATE + " TEXT ," + COL_TEMP6 + " TEXT,  " + COL_TEMP12 +
             " TEXT,  " + COL_TEMP18 + " TEXT,  " + COL_TEMP24 + " TEXT,  " + COL_IDLACR + " TEXT );";
 
 
