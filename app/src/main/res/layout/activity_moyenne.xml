@@ -11,13 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/logoTemperoListe"
-            android:layout_gravity="center"
-            android:layout_width="106dp"
-            android:layout_height="174dp"
-            app:srcCompat="@drawable/logotemperocalor" />
-
         <LinearLayout
             android:layout_width="416dp"
             android:layout_height="595dp"
@@ -67,6 +60,7 @@
             <Spinner
                 android:id="@+id/MoisSpinner"
                 android:layout_width="match_parent"
+                android:entries="@array/spinnerMois"
                 android:layout_height="41dp" />
 
             <Spinner
@@ -80,22 +74,43 @@
                 android:id="@+id/unitéSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-
+                android:entries="@array/spinnerItems"
                 android:spinnerMode="dropdown" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/Moyenne_Temp"
                 android:layout_width="match_parent"
                 android:layout_height="53dp"
-                android:text="TextView"
+                android:text="Moyenne Temp"
                 android:translationY="50dp" />
+
+            <TextView
+                android:id="@+id/CoordonnéeX"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="CoordonnéeX"
+                android:translationY="50dp" />
+
+            <TextView
+                android:id="@+id/CoordonnéeY"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="CoordonnéeY"
+                android:translationY="50dp" />
+
+            <Button
+                android:id="@+id/buttonVal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Valider"
+                android:translationY="70dp" />
 
             <Button
                 android:id="@+id/buttonRetour3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/btnretour"
-                android:translationY="50dp" />
+                android:translationY="70dp" />
 
         </LinearLayout>
 

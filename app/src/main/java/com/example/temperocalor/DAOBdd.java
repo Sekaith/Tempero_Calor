@@ -290,6 +290,107 @@ public class DAOBdd {
         db.execSQL("UPDATE treleve SET Temp24 = " + "'"+ Temp +"'" + " WHERE DateR = " + "'" + Date + "'" + " AND IdLacR =" + "'" + Id + "'");
 
     }
+    public String getCoordXFromNom(String Nom) {
+        String Coord = "";
+        Cursor c = db.rawQuery("SELECT Coordonnée_X FROM tlac WHERE NomLac = "+"'"+Nom+"'", null);
+        if(c.moveToFirst()) {
+            Coord=c.getString(0);
+        }
+        c.close();
+        return Coord;
+    }
+    public String getCoordYFromNom(String Nom) {
+        String Coord = "";
+        Cursor c = db.rawQuery("SELECT Coordonnée_Y FROM tlac WHERE NomLac = "+"'"+Nom+"'", null);
+        if(c.moveToFirst()) {
+            Coord=c.getString(0);
+        }
+        c.close();
+        return Coord;
+    }
+    public int getMoyAllReleveFromLac6(String Id, String Mois) {
+        List<Integer> listeTemp = new ArrayList<>();
+        int moy = 0;
+        int somme = 0;
+        Cursor c1 = db.rawQuery("SELECT Temp6 FROM treleve WHERE IdLacr = "+"'"+Id+"'"+ " AND DateR LIKE " + "'%-" +Mois+ "-%'" , null);
+        if(c1.moveToFirst()) {
+            do {
+                String t = c1.getString(0);
+                int t2 = Integer.parseInt(t);
+                listeTemp.add(t2);
+            } while (c1.moveToNext());
+            for (int i = 0; i < listeTemp.size(); i++) {
+                somme += listeTemp.get(i);
+            }
+            moy = somme / listeTemp.size();
+
+        }
+        c1.close();
+        return moy;
+    }
+    public int getMoyAllReleveFromLac12(String Id, String Mois) {
+        List<Integer> listeTemp = new ArrayList<>();
+
+        int moy = 0;
+        int somme = 0;
+        Cursor c1 = db.rawQuery("SELECT Temp12 FROM treleve WHERE IdLacr = "+"'"+Id+"'"+ " AND DateR LIKE " + "'%-" +Mois+ "-%'" , null);
+        if(c1.moveToFirst()) {
+            do {
+                String t = c1.getString(0);
+                int t2 = Integer.parseInt(t);
+                listeTemp.add(t2);
+            } while (c1.moveToNext());
+            for (int i = 0; i < listeTemp.size(); i++) {
+                somme += listeTemp.get(i);
+            }
+            moy = somme / listeTemp.size();
+
+        }
+        c1.close();
+        return moy;
+    }
+    public int getMoyAllReleveFromLac18(String Id, String Mois) {
+        List<Integer> listeTemp = new ArrayList<>();
+
+        int moy = 0;
+        int somme = 0;
+        Cursor c1 = db.rawQuery("SELECT Temp18 FROM treleve WHERE IdLacr = "+"'"+Id+"'"+ " AND DateR LIKE " + "'%-" +Mois+ "-%'" , null);
+        if(c1.moveToFirst()) {
+            do {
+                String t = c1.getString(0);
+                int t2 = Integer.parseInt(t);
+                listeTemp.add(t2);
+            } while (c1.moveToNext());
+            for (int i = 0; i < listeTemp.size(); i++) {
+                somme += listeTemp.get(i);
+            }
+            moy = somme / listeTemp.size();
+
+        }
+        c1.close();
+        return moy;
+    }
+    public int getMoyAllReleveFromLac00(String Id, String Mois) {
+        List<Integer> listeTemp = new ArrayList<>();
+
+        int moy = 0;
+        int somme = 0;
+        Cursor c1 = db.rawQuery("SELECT Temp24 FROM treleve WHERE IdLacr = "+"'"+Id+"'"+ " AND DateR LIKE " + "'%-" +Mois+ "-%'" , null);
+        if(c1.moveToFirst()) {
+            do {
+                String t = c1.getString(0);
+                int t2 = Integer.parseInt(t);
+                listeTemp.add(t2);
+            } while (c1.moveToNext());
+            for (int i = 0; i < listeTemp.size(); i++) {
+                somme += listeTemp.get(i);
+            }
+            moy = somme / listeTemp.size();
+
+        }
+        c1.close();
+        return moy;
+    }
 
 
 

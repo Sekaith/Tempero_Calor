@@ -40,7 +40,6 @@ public class ActivityListeReleve extends Activity {
         final Spinner nom = findViewById(R.id.nomLacSpinnerListe);
         final Spinner unité = findViewById(R.id.unitéSpinner);
         List lesLacs = Bdd.getAllNomLac();
-        String Test = lesLacs.get(1).toString();
         //Toast.makeText(getApplicationContext(), Bdd.getTemp6Releve("16-11-2020", "1"), Toast.LENGTH_LONG).show();
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, lesLacs);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
