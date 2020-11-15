@@ -77,46 +77,44 @@ public class ActivitySaisirReleve extends Activity {
 
                     switch (v.getId()) {
                         case R.id.buttonEnregistrer:
-
+                            //Toast.makeText(getApplicationContext(), DateText.getText().toString(), Toast.LENGTH_LONG).show();
+                            String Nlac = nom.getSelectedItem().toString();
+                            String IdLac = Bdd.getIdFromNom(Nlac);
+                            String Date = DateText.getText().toString();
+                            Releve releve = new Releve(Date, "","","","",IdLac);
+                            Bdd.insererReleve(releve);
                             if(heure6.isChecked()){
 
-                                String Nlac = nom.getSelectedItem().toString();
-                                String IdLac = Bdd.getIdFromNom(Nlac);
-                                //Toast.makeText(getApplicationContext(), DateText.getText().toString(), Toast.LENGTH_LONG).show();
                                 String Temp = ReleveTemp.getText().toString();
-                                Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
-                                Releve releve = new Releve(DateText.getText().toString(), Temp,"","","",IdLac);
-                                Bdd.insererReleve(releve);
+                                Bdd.InsertTemp6(Date,IdLac,Temp);
+                                //Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
                                 Bdd.close();
                                 finish();
                                 break;
                             }
                             if(heure12.isChecked()){
 
-                                String Nlac = nom.getSelectedItem().toString();
-                                String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve( DateText.toString(), null,ReleveTemp.getText().toString(),"","",IdLac);
-                                Bdd.insererReleve(releve);
+                                String Temp = ReleveTemp.getText().toString();
+                                Bdd.InsertTemp12(Date,IdLac,Temp);
+                                //Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
                                 Bdd.close();
                                 finish();
                                 break;
                             }
                             if(heure18.isChecked()){
 
-                                String Nlac = nom.getSelectedItem().toString();
-                                String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(DateText.toString(), "","",ReleveTemp.getText().toString(),"",IdLac);
-                                Bdd.insererReleve(releve);
+                                String Temp = ReleveTemp.getText().toString();
+                                Bdd.InsertTemp18(Date,IdLac,Temp);
+                                //Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
                                 Bdd.close();
                                 finish();
                                 break;
                             }
                             if(heure00.isChecked()){
 
-                                String Nlac = nom.getSelectedItem().toString();
-                                String IdLac = Bdd.getIdFromNom(Nlac);
-                                Releve releve = new Releve(DateText.toString(), "","","",ReleveTemp.getText().toString(),IdLac);
-                                Bdd.insererReleve(releve);
+                                String Temp = ReleveTemp.getText().toString();
+                                Bdd.InsertTemp00(Date,IdLac,Temp);
+                                //Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
                                 Bdd.close();
                                 finish();
                                 break;

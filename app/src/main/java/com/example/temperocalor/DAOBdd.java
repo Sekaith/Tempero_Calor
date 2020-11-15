@@ -268,5 +268,29 @@ public class DAOBdd {
         db.execSQL("delete from " + TABLE_RELEVE);
 
     }
+    public void InsertTemp6(String Date, String Id, String Temp)
+    {
+        db.execSQL("UPDATE treleve SET Temp6 = " + "'"+ Temp +"'" + " WHERE DateR = " + "'" + Date + "'" + " AND IdLacR =" + "'" + Id + "'");
+
+    }
+    public void InsertTemp12(String Date, String Id, String Temp)
+    {
+        db.execSQL("UPDATE treleve SET Temp12 = " + "'"+ Temp +"'" + " WHERE DateR = " + "'" + Date + "'" + " AND IdLacR =" + "'" + Id + "'");
+
+    }
+
+    public void InsertTemp18(String Date, String Id, String Temp)
+    {
+        db.execSQL("UPDATE treleve SET Temp18 = " + "'"+ Temp +"'" + " WHERE DateR = " + "'" + Date + "'" + " AND IdLacR =" + "'" + Id + "'");
+
+    }
+
+    public void InsertTemp00(String Date, String Id, String Temp)
+    {
+        db.execSQL("UPDATE treleve SET Temp24 = " + "'"+ Temp +"'" + " WHERE DateR = " + "'" + Date + "'" + " AND IdLacR =" + "'" + Id + "'");
+
+    }
+
+
 
 }

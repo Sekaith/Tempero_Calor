@@ -79,20 +79,64 @@ public class ActivityListeReleve extends Activity {
                         String Nlac = nom.getSelectedItem().toString();
                         final String IdLac = Bdd.getIdFromNom(Nlac);
                         String Date = DateText.getText().toString();
-                        String Temp6t = Bdd.getTemp6Releve(Date, IdLac);
-                        String Temp12t = Bdd.getTemp12Releve(Date, IdLac);
-                        String Temp18t = Bdd.getTemp18Releve(Date, IdLac);
-                        String Temp00t = Bdd.getTemp00Releve(Date, IdLac);
-                        //Toast.makeText(getApplicationContext(), IdLac +" "+ Date, Toast.LENGTH_LONG).show();
-                        //Toast.makeText(getApplicationContext(), Bdd.getTempReleve(Date, IdLac).toString(), Toast.LENGTH_LONG).show();
-                       Temp6.setText(Temp6t);
-                       Temp12.setText(Temp12t);
-                       Temp18.setText(Temp18t);
-                       Temp00.setText(Temp00t);
+                        Toast.makeText(getApplicationContext(), unité.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+                        if(unité.getSelectedItem().toString().equals("Celsius")) {
+                            String Temp6t = Bdd.getTemp6Releve(Date, IdLac);
+                            String Temp12t = Bdd.getTemp12Releve(Date, IdLac);
+                            String Temp18t = Bdd.getTemp18Releve(Date, IdLac);
+                            String Temp00t = Bdd.getTemp00Releve(Date, IdLac);
+
+                            //Toast.makeText(getApplicationContext(), IdLac +" "+ Date, Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getApplicationContext(), Bdd.getTempReleve(Date, IdLac).toString(), Toast.LENGTH_LONG).show();
+                            Temp6.setText(Temp6t);
+                            Temp12.setText(Temp12t);
+                            Temp18.setText(Temp18t);
+                            Temp00.setText(Temp00t);
+                        } else if (unité.getSelectedItem().toString().equals("Fahrenheit") ) {
+                            String Temp6t = Bdd.getTemp6Releve(Date, IdLac);
+                            String Temp12t = Bdd.getTemp12Releve(Date, IdLac);
+                            String Temp18t = Bdd.getTemp18Releve(Date, IdLac);
+                            String Temp00t = Bdd.getTemp00Releve(Date, IdLac);
+                            if(!Temp6t.equals("")){
+                                int Temp6i = Integer.parseInt(Temp6t);
+                                Temp6i = Temp6i + 32;
+                                String Temp6f = Integer.toString(Temp6i);
+                                Temp6.setText(Temp6f);
+                            } else {
+                                Temp6.setText("");
+                            }
+                            if(!Temp12t.equals("")){
+                                int Temp12i = Integer.parseInt(Temp12t);
+                                Temp12i = Temp12i + 32;
+                                String Temp12f = Integer.toString(Temp12i);
+                                Temp12.setText(Temp12f);
+                            }
+                            else {
+                                Temp12.setText("");
+                            }
+                            if(!Temp18t.equals("")){
+                                int Temp18i = Integer.parseInt(Temp18t);
+                                Temp18i = Temp18i + 32;
+                                String Temp18f = Integer.toString(Temp18i);
+                                Temp18.setText(Temp18f);
+                            }
+                            else {
+                                Temp18.setText("");
+                            }
+                            if(!Temp00t.equals("")){
+                                int Temp00i = Integer.parseInt(Temp00t);
+                                Temp00i = Temp00i + 32;
+                                String Temp00f = Integer.toString(Temp00i);
+                                Temp00.setText(Temp00f);
+                            }
+                            else {
+                                Temp00.setText("");
+                            }
+                        }
                         break;
 
                     case R.id.buttonRetour2:
-                        finish();
+
                         break;}
             }
         };
