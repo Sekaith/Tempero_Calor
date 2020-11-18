@@ -59,9 +59,13 @@ public class MainActivity extends AppCompatActivity {
         lacBDD.open();
         Lac lac1 = new Lac( "Lac01", 43.771450, 6.189804);
         Lac lac2 = new Lac("Lac02", 45.729632, 5.869561);
+        Lac lac3 = new Lac("Lac03", 15.729632, 89.869561);
+
+
 
         lacBDD.insererLac(lac1);
         lacBDD.insererLac(lac2);
+        lacBDD.insererLac(lac3);
         Cursor c1 = lacBDD.getDataReleve();
 
     }

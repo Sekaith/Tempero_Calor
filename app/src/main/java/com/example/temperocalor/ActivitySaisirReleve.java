@@ -89,7 +89,7 @@ public class ActivitySaisirReleve extends Activity {
                                 Bdd.InsertTemp6(Date,IdLac,Temp);
                                 //Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
                                 Bdd.close();
-                                finish();
+
                                 break;
                             }
                             if(heure12.isChecked()){
@@ -98,7 +98,7 @@ public class ActivitySaisirReleve extends Activity {
                                 Bdd.InsertTemp12(Date,IdLac,Temp);
                                 //Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
                                 Bdd.close();
-                                finish();
+
                                 break;
                             }
                             if(heure18.isChecked()){
@@ -107,7 +107,7 @@ public class ActivitySaisirReleve extends Activity {
                                 Bdd.InsertTemp18(Date,IdLac,Temp);
                                 //Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
                                 Bdd.close();
-                                finish();
+
                                 break;
                             }
                             if(heure00.isChecked()){
@@ -116,7 +116,7 @@ public class ActivitySaisirReleve extends Activity {
                                 Bdd.InsertTemp00(Date,IdLac,Temp);
                                 //Toast.makeText(getApplicationContext(), Temp, Toast.LENGTH_LONG).show();
                                 Bdd.close();
-                                finish();
+
                                 break;
                             }
                         case R.id.buttonRetour:

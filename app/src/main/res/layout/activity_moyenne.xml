@@ -54,7 +54,7 @@
                 android:id="@+id/titre_Liste2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/titre_liste"
+                android:text="Moyenne Relevés"
                 android:translationX="160dp" />
 
             <Spinner
